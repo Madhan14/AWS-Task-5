@@ -3,7 +3,7 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "simple-docker-service"
+        TaskDefinition: simple-docker-service
         LoadBalancerInfo:
-          ContainerName: "simple-docker-service"
-          ContainerPort: 3000
+          ContainerName: simple-docker-service
+          ContainerPort: 80
