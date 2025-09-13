@@ -1,27 +1,10 @@
 version: 0.2
 
 phases:
-  install:
-    commands:
-      - echo "Install phase: nothing to install"
-
-  pre_build:
-    commands:
-      - echo "Pre-build phase: checking files"
-      - ls -al
-
   build:
     commands:
-      - echo "Build phase: nothing to build for static site"
-
-  post_build:
-    commands:
-      - echo "Post-build: preparing artifacts"
-      - mkdir -p output
-      - cp -R index.html css js images output/ || true
-      - echo "Artifacts copied to output/"
+      - echo "Hello from CodeBuild!"
 
 artifacts:
-  base-directory: output
   files:
     - '**/*'
