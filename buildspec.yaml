@@ -1,0 +1,40 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14       # optional, only if you have Node-based build steps
+    commands:
+      - echo "Install phase: nothing much to install for static site"
+      # if you had tools like npm, you could run npm install here
+
+  pre_build:
+    commands:
+      - echo "Pre-build phase: verify files"
+      - ls -R .          # list all files for debugging
+
+  build:
+    commands:
+      - echo "Build phase: static site – simple copy or any preprocessing"
+      # If you need minification or bundling, run that here
+      # e.g., npm run build
+      - echo "No build scripts defined, so skipping build tools"
+
+  post_build:
+    commands:
+      - echo "Post-build: preparing artifacts"
+      - mkdir -p output
+      - cp -R index.html css js images output/
+      # Copy any other assets you have
+
+artifacts:
+  files:
+    - output/**/*
+  # optionally, define base-directory if artifacts are in a subfolder
+  base-directory: output
+
+# optional if you use caching
+# cache:
+#   paths:
+#     - node_modules/**/*
+
