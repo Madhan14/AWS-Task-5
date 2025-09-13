@@ -1,13 +1,14 @@
-# Use Node.js LTS from Amazon ECR Public instead of Docker Hub
-FROM public.ecr.aws/docker/library/node:18
+# Use nginx image to serve static website
+FROM nginx:alpine
 
-WORKDIR /app
+# Remove default nginx static content
+RUN rm -rf /usr/share/nginx/html/*
 
-COPY package*.json ./
-RUN npm install
+# Copy your website files to nginx's html folder
+COPY app/ /usr/share/nginx/html/
 
-COPY . .
+# Expose HTTP port
+EXPOSE 80
 
-EXPOSE 3000
-
-CMD ["npm", "start"]
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
