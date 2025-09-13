@@ -1,5 +1,5 @@
-# Use Node.js LTS
-FROM node:18
+# Use Node.js LTS from Amazon ECR Public instead of Docker Hub
+FROM public.ecr.aws/docker/library/node:18
 
 WORKDIR /app
 
