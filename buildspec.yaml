@@ -2,10 +2,8 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      nodejs: 14
     commands:
-      - echo "Install phase: nothing to install for static website"
+      - echo "Install phase: nothing to install"
 
   pre_build:
     commands:
@@ -21,9 +19,9 @@ phases:
       - echo "Post-build: preparing artifacts"
       - mkdir -p output
       - cp -R index.html css js images output/ || true
-      - echo "Artifact files copied to output/"
+      - echo "Artifacts copied to output/"
 
 artifacts:
-  base-directory: output
   files:
     - '**/*'
+  base-directory: output
