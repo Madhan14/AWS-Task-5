@@ -1,13 +1,9 @@
 version: 0.0
-os: linux
-
-files:
-  - source: /
-    destination: /var/www/html
-
-permissions:
-  - object: /var/www/html
-    pattern: "**"
-    owner: root
-    group: root
-    mode: 755
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: "simple-docker-service"
+        LoadBalancerInfo:
+          ContainerName: "simple-docker-service"
+          ContainerPort: 3000
