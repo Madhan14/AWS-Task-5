@@ -22,6 +22,6 @@ phases:
       - echo "Artifacts copied to output/"
 
 artifacts:
+  base-directory: output
   files:
     - '**/*'
-  base-directory: output
