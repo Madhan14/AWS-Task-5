@@ -18,6 +18,7 @@ phases:
     commands:
       - echo "Pushing the Docker image to ECR..."
       - docker push 333650976464.dkr.ecr.ap-south-1.amazonaws.com/$IMAGE_NAME:latest
+
 artifacts:
   files:
     - '**/*'
